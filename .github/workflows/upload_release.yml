@@ -2,7 +2,7 @@ name: Upload Release
 
 on:
   push:
-    branches: [ master ]
+    branches: [ patch-1 ]
 
 jobs:
   build:
@@ -10,10 +10,12 @@ jobs:
     container: devkitpro/devkita64:latest
     steps:
     - uses: actions/checkout@master
+      with:
+          submodules: true
     - name: make
       run: make
     - name: Prepare ZIP
-      run: mkdir exefs && cp Skyline600.nso exefs/subsdk1 && cp cross.npdm exefs/main.npdm && zip Skyline.zip exefs -r
+      run: mkdir exefs && cp Skyline600.nso exefs/subsdk9 && cp cross.npdm exefs/main.npdm && bsdtar -a -cf Skyline.zip exefs
     - name: Upload build artifact
       uses: actions/upload-artifact@v1
       with:
