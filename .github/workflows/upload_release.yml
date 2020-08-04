@@ -10,7 +10,7 @@ jobs:
     container: devkitpro/devkita64:latest
     steps:
     - name: Install git
-      run: pacman -S --noconfirm git
+      run: dkp-pacman -S --noconfirm git
     - uses: actions/checkout@master
       with:
           submodules: true
