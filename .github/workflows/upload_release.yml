@@ -10,7 +10,7 @@ jobs:
     container: devkitpro/devkita64:latest
     steps:
     - name: Clone repo
-      run: git clone --recurse-submodules --single-branch --branch $GITHUB_REF $GITHUB_SERVER_URL/$GITHUB_REPOSITORY .
+      run: git clone --recurse-submodules $GITHUB_SERVER_URL/$GITHUB_REPOSITORY .
     - name: make
       run: make
     - name: Prepare ZIP
